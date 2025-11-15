@@ -1,9 +1,14 @@
 server:
-  port: 8081
+  port: 8083
 
 spring:
   application:
     name: PAYMENT-SERVICE
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
 
   datasource:
     url: jdbc:mysql://localhost:3306/paymentdb?createDatabaseIfNotExist=true
