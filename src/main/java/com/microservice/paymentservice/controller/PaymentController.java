@@ -22,7 +22,7 @@ public class PaymentController {
 
         log.info("PaymentController | doPayment is called");
 
-        log.info("PaymentController | doPayment | paymentRequest : " + paymentRequest.toString());
+        log.info("PaymentController | doPayment | paymentRequest : {}", paymentRequest.toString());
 
         return new ResponseEntity<>(
                 paymentService.doPayment(paymentRequest),
@@ -37,9 +37,10 @@ public class PaymentController {
 
         log.info("PaymentController | doPayment | orderId : " + orderId);
 
-        return new ResponseEntity<>(
-                paymentService.getPaymentDetailsByOrderId(orderId),
-                HttpStatus.OK
-        );
+//        return new ResponseEntity<>(
+//                paymentService.getPaymentDetailsByOrderId(orderId),
+//                HttpStatus.OK
+//        );
+        return ResponseEntity.ok().body(paymentService.getPaymentDetailsByOrderId(orderId));
     }
 }
